@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package product;
+
+option java_multiple_files = true;
+option java_package = "org.core.proto.product";
+
+service ProductService {
+  rpc GetProduct (GetProductRequest) returns (GetProductResponse);
+}
+
+message GetProductRequest {
+  int64 product_id = 1;
+}
+
+message GetProductResponse {
+  int64 id = 1;
+  string name = 2;
+  int64 price = 3;
+  int32 stock = 4;
+}

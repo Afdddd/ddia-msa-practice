@@ -1,0 +1,43 @@
+plugins {
+    id 'java-library'
+    id 'com.google.protobuf' version '0.10.0'
+}
+
+group = 'org.core'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api platform('org.springframework.boot:spring-boot-dependencies:4.1.1')
+
+    api 'io.grpc:grpc-protobuf'
+    api 'io.grpc:grpc-stub'
+
+    // 생성된 gRPC 코드의 @javax.annotation.Generated 용
+    compileOnly 'org.apache.tomcat:annotations-api:6.0.53'
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:4.35.1'
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.83.1'
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+}

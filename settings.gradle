@@ -1,2 +1,2 @@
 rootProject.name = 'ddia-msa-practice'
-include 'order-service', 'product-service'
+include 'order-service', 'product-service', 'proto'
