@@ -9,6 +9,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  grpc:
+    client:
+      channel:
+        product:
+          target: static://localhost:9090
 
 server:
   port: 8081
