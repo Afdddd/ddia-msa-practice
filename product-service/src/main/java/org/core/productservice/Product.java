@@ -1,4 +1,4 @@
-package org.core.productservice.entity;
+package org.core.productservice;
 
 import jakarta.persistence.*;
 
