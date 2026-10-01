@@ -11,6 +11,12 @@ services:
       MYSQL_PASSWORD: ddia
     volumes:
       - mysql-data:/var/lib/mysql
+  kafka:
+    image: apache/kafka:4.1.0
+    container_name: ddia-kafka
+    ports:
+      - "9092:9092"
+
 
 volumes:
   mysql-data:

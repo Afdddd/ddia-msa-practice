@@ -14,6 +14,8 @@ spring:
       channel:
         product:
           target: static://localhost:9090
+  kafka:
+    bootstrap-servers: localhost:9092
 
 server:
   port: 8081
